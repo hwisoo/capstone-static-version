@@ -51,7 +51,7 @@ class App extends Component {
             selectArticle={this.selectArticle}
             list={this.state.articleList}
           />
-          <ArticleDetail />
+          <ArticleDetail articleToDisplay={this.state.selectedArticle} />
         </div>
       </div>
     );
