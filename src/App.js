@@ -22,6 +22,13 @@ class App extends Component {
     console.log(this.state);
   }
 
+  selectArticle = post => {
+    this.setState({
+      selectedArticle: { post }
+    });
+    console.log(post.title);
+  };
+
   // fetchArticles() {
   //   let newArticles = [];
   //   for (let article in articles) {
@@ -40,7 +47,10 @@ class App extends Component {
       <div className="App">
         <Header />
         <div className="main-container">
-          <ArticleList list={this.state.articleList} />
+          <ArticleList
+            selectArticle={this.selectArticle}
+            list={this.state.articleList}
+          />
           <ArticleDetail />
         </div>
       </div>

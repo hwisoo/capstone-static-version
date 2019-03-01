@@ -11,7 +11,7 @@ function ArticleList(props) {
       <h2>Articles List</h2>
       <ul>
         {items.map((item, i) => (
-          <Article key={i} current={item} />
+          <Article selectArticle={props.selectArticle} key={i} current={item} />
         ))}
       </ul>
     </div>
