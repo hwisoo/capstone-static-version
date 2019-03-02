@@ -2,8 +2,8 @@ import React from "react";
 import Article from "./Article";
 function ArticleList(props) {
   let items = [];
-  if (props.list.articles) {
-    props.list.articles.map((article, i) => items.push(article));
+  if (props.list) {
+    props.list.map((article, i) => items.push(article));
   }
 
   return (

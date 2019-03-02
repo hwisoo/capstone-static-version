@@ -15,6 +15,8 @@ function ArticleDetail(props) {
       <div>
         <h2>Article detail</h2>
         <h3>{props.articleToDisplay.post.title}</h3>
+        <p>{props.articleToDisplay.post.description}</p>
+        <img src={props.articleToDisplay.post.urlToImage} />
       </div>
     );
   }

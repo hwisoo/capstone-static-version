@@ -2,7 +2,7 @@ const articles = [
   {
     code: "BAcyDyQwcXX",
     title: "Lorem",
-    id: "1161022966406956503",
+    content: "business news",
     img_src: `https://picsum.photos/400/400/?image=${Math.floor(
       Math.random() * 85
     )}`
@@ -10,7 +10,7 @@ const articles = [
   {
     code: "BAcJeJrQca9",
     title: "Lorem",
-    id: "1160844458347054781",
+    content: "world news",
     img_src: `https://picsum.photos/400/400/?image=${Math.floor(
       Math.random() * 85
     )}`
@@ -18,7 +18,7 @@ const articles = [
   {
     code: "BAF_KY4wcRY",
     title: "Lorem ipsum!",
-    id: "1154606670337393752",
+    content: "politics",
     img_src: `https://picsum.photos/400/400/?image=${Math.floor(
       Math.random() * 85
     )}`
@@ -26,7 +26,7 @@ const articles = [
   {
     code: "BAPIPRjQce9",
     title: "Lorem ☕️",
-    id: "1157179863266871229",
+    content: "sports",
     img_src: `https://picsum.photos/400/400/?image=${Math.floor(
       Math.random() * 85
     )}`
@@ -34,7 +34,7 @@ const articles = [
   {
     code: "-hZh6IQcfN",
     title: "Lorem javascript",
-    id: "1126293663140399053",
+    content: "1126293663140399053",
     img_src: `https://picsum.photos/400/400/?image=${Math.floor(
       Math.random() * 85
     )}`
@@ -42,7 +42,7 @@ const articles = [
   {
     code: "-B3eiIwcYV",
     title: "Lorem 🇺🇸",
-    id: "1117418173361145365",
+    content: "1117418173361145365",
     img_src: `https://picsum.photos/400/400/?image=${Math.floor(
       Math.random() * 85
     )}`
@@ -50,7 +50,7 @@ const articles = [
   {
     code: "BAhvZrRwcfu",
     title: "Lorem ipsum lorem",
-    id: "1162418651480049646",
+    content: "1162418651480049646",
     img_src: `https://picsum.photos/400/400/?image=${Math.floor(
       Math.random() * 85
     )}`
@@ -58,7 +58,7 @@ const articles = [
   {
     code: "BAAJqbƒOQcW5",
     title: "Lorem",
-    id: "1152964002473690553",
+    content: "1152964002473690553",
     img_src: `https://picsum.photos/400/400/?image=${Math.floor(
       Math.random() * 85
     )}`
@@ -66,7 +66,7 @@ const articles = [
   {
     code: "_4jHytwcUA",
     title: "Lorem 👶🏼",
-    id: "1150824171912152320",
+    content: "1150824171912152320",
     img_src: `https://picsum.photos/400/400/?image=${Math.floor(
       Math.random() * 85
     )}`
@@ -74,7 +74,7 @@ const articles = [
   {
     code: "_zbaOlQcbn",
     title: "Lorem",
-    id: "1149382879529256679",
+    content: "1149382879529256679",
     img_src: `https://picsum.photos/400/400/?image=${Math.floor(
       Math.random() * 85
     )}`
@@ -82,7 +82,7 @@ const articles = [
   {
     code: "_rmvQfQce8",
     title: "Lorem  🍜",
-    id: "1147180903383025596",
+    content: "1147180903383025596",
     img_src: `https://picsum.photos/400/400/?image=${Math.floor(
       Math.random() * 85
     )}`
@@ -90,7 +90,7 @@ const articles = [
   {
     code: "_ep9kiQcVy",
     title: "Lorem",
-    id: "1143535906423162226",
+    content: "1143535906423162226",
     img_src: `https://picsum.photos/400/400/?image=${Math.floor(
       Math.random() * 85
     )}`
@@ -98,7 +98,7 @@ const articles = [
   {
     code: "_XpJcrwcSn",
     title: "Lorem 2123!",
-    id: "1141561999742846119",
+    content: "1141561999742846119",
     img_src: `https://picsum.photos/400/400/?image=${Math.floor(
       Math.random() * 85
     )}`
@@ -106,7 +106,7 @@ const articles = [
   {
     code: "_KnU7MwceA",
     title: "Lorem !!.",
-    id: "1137894817632733056",
+    content: "1137894817632733056",
     img_src: `https://picsum.photos/400/400/?image=${Math.floor(
       Math.random() * 85
     )}`
@@ -114,7 +114,7 @@ const articles = [
   {
     code: "_HMejJQcY5",
     title: "Lorem",
-    id: "1136932306813044281",
+    content: "1136932306813044281",
     img_src: `https://picsum.photos/400/400/?image=${Math.floor(
       Math.random() * 85
     )}`
@@ -122,7 +122,7 @@ const articles = [
   {
     code: "_Fq2zmwcaz",
     title: "Lorem ipsum 55.",
-    id: "1136502965197194931",
+    content: "1136502965197194931",
     img_src: `https://picsum.photos/400/400/?image=${Math.floor(
       Math.random() * 85
     )}`
@@ -130,7 +130,7 @@ const articles = [
   {
     code: "_A2r0aQcfD",
     title: "Lorem 1919",
-    id: "1135147611821557699",
+    content: "1135147611821557699",
     img_src: `https://picsum.photos/400/400/?image=${Math.floor(
       Math.random() * 85
     )}`
@@ -138,7 +138,7 @@ const articles = [
   {
     code: "-1rhFawccs",
     title: "Lorem 😍",
-    id: "1132002270913873708",
+    content: "1132002270913873708",
     img_src: `https://picsum.photos/400/400/?image=${Math.floor(
       Math.random() * 85
     )}`
@@ -146,7 +146,7 @@ const articles = [
   {
     code: "-pjx-gQcVi",
     title: "Lorem and me.",
-    id: "1128590547628442978",
+    content: "1128590547628442978",
     img_src: `https://picsum.photos/400/400/?image=${Math.floor(
       Math.random() * 85
     )}`
@@ -154,7 +154,7 @@ const articles = [
   {
     code: "-oTZ0zQcWt",
     title: "Lorem too early. Send coffee.",
-    id: "1128237044221461933",
+    content: "1128237044221461933",
     img_src: `https://picsum.photos/400/400/?image=${Math.floor(
       Math.random() * 85
     )}`
@@ -162,7 +162,7 @@ const articles = [
   {
     code: "-mxKQoQcQh",
     title: "Lorem",
-    id: "1127804966031967265",
+    content: "1127804966031967265",
     img_src: `https://picsum.photos/400/400/?image=${Math.floor(
       Math.random() * 85
     )}`
@@ -170,7 +170,7 @@ const articles = [
   {
     code: "-fasqlQceO",
     title: "Lorem ipsum lorem 9",
-    id: "1125735850454402958",
+    content: "1125735850454402958",
     img_src: `https://picsum.photos/400/400/?image=${Math.floor(
       Math.random() * 85
     )}`
@@ -178,7 +178,7 @@ const articles = [
   {
     code: "-VBgtGQcSf",
     title: "Lorem zzz",
-    id: "1122810327591928991",
+    content: "1122810327591928991",
     img_src: `https://picsum.photos/400/400/?image=${Math.floor(
       Math.random() * 85
     )}`
@@ -186,7 +186,7 @@ const articles = [
   {
     code: "-FpTyHQcau",
     title: "Lorem",
-    id: "1118481761857291950",
+    content: "1118481761857291950",
     img_src: `https://picsum.photos/400/400/?image=${Math.floor(
       Math.random() * 85
     )}`

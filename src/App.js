@@ -16,10 +16,15 @@ class App extends Component {
 
   componentWillMount() {
     console.log("App mounted");
-    this.setState({
-      articleList: { articles }
+    let promise = this.fetchArticles();
+    promise.then(response => {
+      let data = JSON.parse(response);
+      console.table(data.articles);
+      this.setState({
+        articleList: data.articles
+      });
     });
-    console.log(this.state);
+    this.fetchArticles();
   }
 
   selectArticle = post => {
@@ -29,14 +34,26 @@ class App extends Component {
     console.log(post.title);
   };
 
-  // fetchArticles() {
-  //   let newArticles = [];
-  //   for (let article in articles) {
-  //     newArticles.push({
-  //       title: article.title
-  //     });
-  //   }
-  // }
+  fetchArticles() {
+    return new Promise((resolve, reject) => {
+      let request = new XMLHttpRequest();
+
+      let url =
+        "https://newsapi.org/v2/top-headlines?" +
+        "sources=bbc-news&" +
+        "apiKey=559746f8cabf46d290a2553dcb04eaa5";
+      request.onload = function() {
+        if (this.status === 200) {
+          resolve(request.response);
+        } else {
+          reject(Error(request.statusText));
+        }
+      };
+      request.open("GET", url, true);
+      request.send();
+    });
+  }
+
   onArticleSelect = () => {
     // this.setState({
     //   selectedArticle:

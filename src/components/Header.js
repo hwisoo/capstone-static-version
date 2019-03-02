@@ -6,7 +6,7 @@ function Header() {
   return (
     <header className="App-header">
       <img src={logo} className="App-logo" alt="logo" />
-      Text-to-Speech
+      <h1>Text-to-Speech App</h1>
       <DateTime />
     </header>
   );
