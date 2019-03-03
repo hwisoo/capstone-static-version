@@ -1,8 +1,6 @@
 import React from "react";
 
 function ArticleDetail(props) {
-  console.log(props);
-
   if (props.articleToDisplay === null) {
     return (
       <div>
@@ -15,7 +13,8 @@ function ArticleDetail(props) {
       <div>
         <h2>Article detail</h2>
         <h3>{props.articleToDisplay.post.title}</h3>
-        <p>{props.articleToDisplay.post.description}</p>
+        <h4>{props.articleToDisplay.post.description}</h4>
+        <p>{props.articleToDisplay.post.content}</p>
         <img src={props.articleToDisplay.post.urlToImage} />
       </div>
     );

@@ -3,13 +3,12 @@ import Header from "./components/Header";
 import "./App.css";
 import ArticleList from "./components/ArticleList";
 import ArticleDetail from "./components/ArticleDetail";
-import articles from "./data/articles";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      articleList: articles,
+      articleList: [],
       selectedArticle: null
     };
   }
