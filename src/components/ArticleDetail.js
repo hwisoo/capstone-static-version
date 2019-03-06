@@ -12,10 +12,18 @@ function ArticleDetail(props) {
     return (
       <div>
         <h2>Article detail</h2>
-        <h3>{props.articleToDisplay.post.title}</h3>
+        <h3>
+          {props.articleToDisplay.post.author}:{" "}
+          {props.articleToDisplay.post.title}
+        </h3>
         <h4>{props.articleToDisplay.post.description}</h4>
-        <p>{props.articleToDisplay.post.content}</p>
-        <img src={props.articleToDisplay.post.urlToImage} />
+        <a href={props.articleToDisplay.post.url} target="_blank">
+          {props.articleToDisplay.post.url}
+        </a>
+        <img
+          className="articleImg"
+          src={props.articleToDisplay.post.urlToImage}
+        />
       </div>
     );
   }

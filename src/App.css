@@ -39,3 +39,7 @@
   display: grid;
   grid-template-columns: 2fr 5fr;
 }
+
+.articleImg {
+  max-width: 50vw;
+}
