@@ -23,6 +23,7 @@ function ArticleDetail(props) {
         <img
           className="articleImg"
           src={props.articleToDisplay.post.urlToImage}
+          alt={props.articleToDisplay.post.title}
         />
       </div>
     );
