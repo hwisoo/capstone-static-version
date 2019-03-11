@@ -4,7 +4,9 @@ import "./App.css";
 import ArticleList from "./components/ArticleList";
 import ArticleDetail from "./components/ArticleDetail";
 import SpeechControl from "./components/SpeechControl";
+import Login from "./components/Login";
 import moment from "moment";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 class App extends Component {
   constructor(props) {
@@ -59,7 +61,24 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header date={this.state.today} />
+        <Router>
+          <div>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/articles">articles</Link>
+              </li>
+            </ul>
+
+            <hr />
+
+            <Route exact path="/" component={Login} />
+            <Route path="/articles" component={ArticleList} />
+          </div>
+        </Router>
+        {/* <Header date={this.state.today} />
         <SpeechControl date={this.state.today} />
         <div className="main-container">
           <ArticleList
@@ -67,7 +86,7 @@ class App extends Component {
             list={this.state.articleList}
           />
           <ArticleDetail articleToDisplay={this.state.selectedArticle} />
-        </div>
+        </div> */}
       </div>
     );
   }
