@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import "./App.css";
 import ArticleList from "./components/ArticleList";
 import ArticleDetail from "./components/ArticleDetail";
+import SpeechControl from "./components/SpeechControl";
 
 class App extends Component {
   constructor(props) {
@@ -62,6 +63,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
+        <SpeechControl />
         <div className="main-container">
           <ArticleList
             selectArticle={this.selectArticle}
