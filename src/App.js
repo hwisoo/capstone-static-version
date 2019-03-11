@@ -56,11 +56,6 @@ class App extends Component {
     });
   }
 
-  onArticleSelect = () => {
-    // this.setState({
-    //   selectedArticle:
-    // });
-  };
   render() {
     return (
       <div className="App">

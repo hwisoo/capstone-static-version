@@ -5,10 +5,21 @@ class SpeechControl extends React.Component {
     super(props);
   }
 
-  morningGreeting() {
+  morningGreeting = () => {
     const msg = new SpeechSynthesisUtterance();
-    msg.text = "Good morning, Today's date is" + this.props.date;
-    console.log(speechSynthesis.getVoices());
+    let d = new Date();
+    const weekday = new Array(7);
+    weekday[0] = "Sunday";
+    weekday[1] = "Monday";
+    weekday[2] = "Tuesday";
+    weekday[3] = "Wednesday";
+    weekday[4] = "Thursday";
+    weekday[5] = "Friday";
+    weekday[6] = "Saturday";
+
+    let n = weekday[d.getDay()];
+    msg.text = "Good morning, Today is " + n + this.props.date;
+
     function toggle(startOver = true) {
       speechSynthesis.cancel();
       if (startOver) {
@@ -16,7 +27,7 @@ class SpeechControl extends React.Component {
       }
     }
     toggle();
-  }
+  };
 
   componentWillMount() {
     this.morningGreeting();
@@ -29,12 +40,13 @@ class SpeechControl extends React.Component {
     const options = document.querySelectorAll('[type="range"], [name="text"]');
     const speakButton = document.querySelector("#speak");
     const stopButton = document.querySelector("#stop");
-    msg.text = "Hi there";
+    msg.text = "Good morning, Today's date is";
 
     function populateVoices() {
       voices = this.getVoices();
+      console.table(voices);
       voicesDropdown.innerHTML = voices
-        .filter(voice => voice.name.includes("Google"))
+        .filter(voice => voice.name === "Google UK English Male")
         .filter(voice => voice.lang.includes("en"))
         .map(
           voice =>
@@ -45,8 +57,8 @@ class SpeechControl extends React.Component {
         .join("");
     }
 
-    function setVoice() {
-      msg.voice = voices.find(voice => voice.name === this.value);
+    function setVoice(name) {
+      msg.voice = voices.find(voice => voice.name === name);
       toggle();
     }
 
