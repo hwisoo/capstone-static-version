@@ -1,6 +1,27 @@
 import React from "react";
 
 class SpeechControl extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  morningGreeting() {
+    const msg = new SpeechSynthesisUtterance();
+    msg.text = "Good morning, Today's date is" + this.props.date;
+    console.log(speechSynthesis.getVoices());
+    function toggle(startOver = true) {
+      speechSynthesis.cancel();
+      if (startOver) {
+        speechSynthesis.speak(msg);
+      }
+    }
+    toggle();
+  }
+
+  componentWillMount() {
+    this.morningGreeting();
+  }
+
   componentDidMount() {
     const msg = new SpeechSynthesisUtterance();
     let voices = [];
@@ -48,9 +69,10 @@ class SpeechControl extends React.Component {
     speakButton.addEventListener("click", toggle);
     stopButton.addEventListener("click", () => toggle(false));
   }
+
   render() {
     return (
-      <div class="voiceinator">
+      <div className="voiceinator">
         <select name="voice" id="voices">
           <option value="">Select A Voice</option>
         </select>

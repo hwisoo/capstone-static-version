@@ -4,13 +4,15 @@ import "./App.css";
 import ArticleList from "./components/ArticleList";
 import ArticleDetail from "./components/ArticleDetail";
 import SpeechControl from "./components/SpeechControl";
+import moment from "moment";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       articleList: [],
-      selectedArticle: null
+      selectedArticle: null,
+      today: moment().format("MMMM Do YYYY")
     };
   }
 
@@ -62,8 +64,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header />
-        <SpeechControl />
+        <Header date={this.state.today} />
+        <SpeechControl date={this.state.today} />
         <div className="main-container">
           <ArticleList
             selectArticle={this.selectArticle}
