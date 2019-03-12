@@ -61,7 +61,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Router>
+        {/* <Router>
           <div>
             <ul>
               <li>
@@ -71,14 +71,9 @@ class App extends Component {
                 <Link to="/articles">articles</Link>
               </li>
             </ul>
-
-            <hr />
-
-            <Route exact path="/" component={Login} />
-            <Route path="/articles" component={ArticleList} />
           </div>
-        </Router>
-        {/* <Header date={this.state.today} />
+        </Router> */}
+        <Header date={this.state.today} />
         <SpeechControl date={this.state.today} />
         <div className="main-container">
           <ArticleList
@@ -86,7 +81,7 @@ class App extends Component {
             list={this.state.articleList}
           />
           <ArticleDetail articleToDisplay={this.state.selectedArticle} />
-        </div> */}
+        </div>
       </div>
     );
   }

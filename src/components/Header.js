@@ -2,6 +2,8 @@ import React from "react";
 import logo from "../logo.svg";
 import DateTime from "./DateTime";
 import Weather from "./Weather";
+import Login from "./Login";
+
 function Header(props) {
   return (
     <header className="App-header">
@@ -14,7 +16,7 @@ function Header(props) {
         </h1>
         <DateTime date={props.date} />
       </div>
-      <div />
+      <Login />
     </header>
   );
 }
