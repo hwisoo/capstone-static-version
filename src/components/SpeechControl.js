@@ -5,7 +5,7 @@ class SpeechControl extends React.Component {
     super(props);
   }
 
-  morningGreeting = () => {
+  initialGreeting = () => {
     const msg = new SpeechSynthesisUtterance();
     let d = new Date();
     const weekday = new Array(7);
@@ -16,9 +16,44 @@ class SpeechControl extends React.Component {
     weekday[4] = "Thursday";
     weekday[5] = "Friday";
     weekday[6] = "Saturday";
-
+    let hour = d.getHours();
     let n = weekday[d.getDay()];
-    msg.text = "Good morning, Today is " + n + this.props.date;
+    let customGreeting = hour < 11 ? "Good morning" : "Good afternoon";
+    msg.text = customGreeting + " Today is " + n + this.props.date + ".";
+
+    function toggle(startOver = true) {
+      speechSynthesis.cancel();
+      if (startOver) {
+        speechSynthesis.speak(msg);
+      }
+    }
+    toggle();
+  };
+
+  weatherReport = () => {
+    const msg = new SpeechSynthesisUtterance();
+    console.log(this.props.weather);
+    let fahrenheit = (this.props.weather.temp * 9) / 5 + 32;
+    msg.text =
+      "The current weather in " +
+      this.props.weather.city_name +
+      " is " +
+      this.props.weatherDetails.description +
+      ". the current temperature outside is " +
+      fahrenheit +
+      " degrees fahrenheit.";
+    function toggle(startOver = true) {
+      speechSynthesis.cancel();
+      if (startOver) {
+        speechSynthesis.speak(msg);
+      }
+    }
+    toggle();
+  };
+
+  newsReport = () => {
+    const msg = new SpeechSynthesisUtterance();
+    msg.text = "Here's the recent news ";
 
     function toggle(startOver = true) {
       speechSynthesis.cancel();
@@ -30,9 +65,17 @@ class SpeechControl extends React.Component {
   };
 
   componentWillMount() {
-    this.morningGreeting();
+    this.initialGreeting();
   }
 
+  componentDidUpdate() {
+    if (this.props.weatherFetched) {
+      this.weatherReport();
+    }
+    if (this.props.articlesFetched) {
+      this.newsReport();
+    }
+  }
   componentDidMount() {
     const msg = new SpeechSynthesisUtterance();
     let voices = [];

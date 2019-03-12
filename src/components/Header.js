@@ -7,7 +7,12 @@ import Login from "./Login";
 function Header(props) {
   return (
     <header className="App-header">
-      <Weather />
+      <Weather
+        weatherFetched={props.weatherFetched}
+        weather={props.weather}
+        weatherDetails={props.weatherDetails}
+        setWeatherStatus={props.setWeatherStatus}
+      />
       <div>
         <h1>
           {" "}

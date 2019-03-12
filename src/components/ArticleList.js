@@ -9,11 +9,26 @@ function ArticleList(props) {
   return (
     <div>
       <h2>Articles List</h2>
-      <ul>
-        {items.map((item, i) => (
-          <Article selectArticle={props.selectArticle} key={i} current={item} />
-        ))}
-      </ul>
+      {props.articlesFetched ? (
+        <ul>
+          {items.map((item, i) => (
+            <Article
+              selectArticle={props.selectArticle}
+              key={i}
+              current={item}
+            />
+          ))}
+        </ul>
+      ) : (
+        <button
+          onClick={() => {
+            props.setArticlesStatus();
+          }}
+          className="btn-lg btn-dark"
+        >
+          Fetch News
+        </button>
+      )}
     </div>
   );
 }

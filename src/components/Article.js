@@ -3,13 +3,13 @@ import React from "react";
 function Article(props) {
   return (
     <div>
-      <h3
+      <h5
         onClick={() => {
           props.selectArticle(props.current);
         }}
       >
         {props.current.title}
-      </h3>
+      </h5>
     </div>
   );
 }
