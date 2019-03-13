@@ -35,10 +35,10 @@ export default function Weather(props) {
             />
           </p>
           <p className="small">
-            Temperature: {(props.weather.temp * 9) / 5 + 32} °F
+            Temperature: {((props.weather.temp * 9) / 5 + 32).toFixed(2)} °F
           </p>
           <p className="small">
-            Feels like: {(props.weather.app_temp * 9) / 5 + 32}°F
+            Feels like: {((props.weather.app_temp * 9) / 5 + 32).toFixed(2)}°F
           </p>
           <p className="small">Wind Speed: {props.weather.wind_spd} mph</p>
           <p className="small">

@@ -33,59 +33,10 @@ class SpeechControl extends React.Component {
     toggle();
   };
 
-  // weatherReport = () => {
-  //   const msg = new SpeechSynthesisUtterance();
-  //   console.log(this.props.weather);
-  //   let fahrenheit = (this.props.weather.temp * 9) / 5 + 32;
-  //   msg.text =
-  //     "The current weather in " +
-  //     this.props.weather.city_name +
-  //     " is " +
-  //     this.props.weatherDetails.description +
-  //     ". the current temperature outside is " +
-  //     fahrenheit +
-  //     " degrees fahrenheit.";
-  //   function toggle(startOver = true) {
-  //     speechSynthesis.cancel();
-  //     if (startOver) {
-  //       speechSynthesis.speak(msg);
-  //     }
-  //   }
-  //   toggle();
-  // };
-
-  newsReport = () => {
-    const msg = new SpeechSynthesisUtterance();
-    msg.text = "Here's the recent news ";
-
-    function toggle(startOver = true) {
-      speechSynthesis.cancel();
-      if (startOver) {
-        speechSynthesis.speak(msg);
-      }
-    }
-    toggle();
-  };
-
   componentWillMount() {
     this.initialGreeting();
   }
 
-  componentDidUpdate() {
-    if (this.props.weatherFetched) {
-      this.weatherReport();
-    }
-
-    if (
-      this.props.articlesFetched
-      // this.state.ArticleListexecuted === false
-    ) {
-      this.newsReport();
-      // this.setState({
-      //   ArticleListexecuted: true
-      // });
-    }
-  }
   componentDidMount() {
     const msg = new SpeechSynthesisUtterance();
     let voices = [];

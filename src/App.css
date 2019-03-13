@@ -93,3 +93,8 @@ img.googleLogo {
   opacity: 0.01;
   transition: opacity 300ms ease-in;
 }
+
+.articleTitle:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
