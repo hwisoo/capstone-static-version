@@ -30,7 +30,8 @@ class App extends Component {
   }
 
   componentWillMount() {
-    console.log("App mounted");
+    this.fetchWeather();
+    this.handleWeatherData();
     let promise = this.fetchArticles();
     promise.then(response => {
       let data = JSON.parse(response);
@@ -40,9 +41,6 @@ class App extends Component {
       });
     });
     this.fetchArticles();
-
-    this.fetchWeather();
-    this.handleWeatherData();
   }
 
   setWeatherStatus = () => {

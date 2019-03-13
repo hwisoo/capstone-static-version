@@ -1,6 +1,26 @@
 import React from "react";
 
 export default function Weather(props) {
+  const weatherReport = () => {
+    const msg = new SpeechSynthesisUtterance();
+    console.log(props.weather);
+    let fahrenheit = (props.weather.temp * 9) / 5 + 32;
+    msg.text =
+      "The current weather in " +
+      props.weather.city_name +
+      " is " +
+      props.weatherDetails.description +
+      ". the current temperature outside is " +
+      fahrenheit +
+      " degrees fahrenheit.";
+    function toggle(startOver = true) {
+      speechSynthesis.cancel();
+      if (startOver) {
+        speechSynthesis.speak(msg);
+      }
+    }
+    toggle();
+  };
   return (
     <div>
       {props.weatherFetched ? (
@@ -28,6 +48,7 @@ export default function Weather(props) {
       ) : (
         <button
           onClick={() => {
+            weatherReport();
             props.setWeatherStatus();
           }}
           className="btn-dark btn-lg"

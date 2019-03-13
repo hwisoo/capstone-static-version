@@ -45,6 +45,7 @@
 
 .main-container {
   min-height: 70vh;
+  padding-bottom: 400px;
   display: grid;
   grid-template-columns: 2fr 3fr 2fr;
 }
@@ -53,6 +54,7 @@
   border: 2px solid #fff;
   margin-top: 20px;
   max-width: 50vw;
+  width: 80%;
 }
 
 .weatherIcon {
@@ -71,4 +73,23 @@ button.btn-lg:hover {
 img.googleLogo {
   height: 30px;
   width: 30px;
+}
+
+/* Transition group */
+.example-enter {
+  opacity: 0.01;
+}
+
+.example-enter.example-enter-active {
+  opacity: 1;
+  transition: opacity 5000ms ease-in;
+}
+
+.example-leave {
+  opacity: 1;
+}
+
+.example-leave.example-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
 }

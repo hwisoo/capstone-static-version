@@ -21,7 +21,7 @@ class SpeechControl extends React.Component {
     weekday[6] = "Saturday";
     let hour = d.getHours();
     let n = weekday[d.getDay()];
-    let customGreeting = hour < 12 ? "Good morning" : "Good afternoon";
+    let customGreeting = hour < 12 ? "Good morning," : "Good afternoon,";
     msg.text = customGreeting + " Today is " + n + this.props.date + ".";
 
     function toggle(startOver = true) {
@@ -33,26 +33,26 @@ class SpeechControl extends React.Component {
     toggle();
   };
 
-  weatherReport = () => {
-    const msg = new SpeechSynthesisUtterance();
-    console.log(this.props.weather);
-    let fahrenheit = (this.props.weather.temp * 9) / 5 + 32;
-    msg.text =
-      "The current weather in " +
-      this.props.weather.city_name +
-      " is " +
-      this.props.weatherDetails.description +
-      ". the current temperature outside is " +
-      fahrenheit +
-      " degrees fahrenheit.";
-    function toggle(startOver = true) {
-      speechSynthesis.cancel();
-      if (startOver) {
-        speechSynthesis.speak(msg);
-      }
-    }
-    toggle();
-  };
+  // weatherReport = () => {
+  //   const msg = new SpeechSynthesisUtterance();
+  //   console.log(this.props.weather);
+  //   let fahrenheit = (this.props.weather.temp * 9) / 5 + 32;
+  //   msg.text =
+  //     "The current weather in " +
+  //     this.props.weather.city_name +
+  //     " is " +
+  //     this.props.weatherDetails.description +
+  //     ". the current temperature outside is " +
+  //     fahrenheit +
+  //     " degrees fahrenheit.";
+  //   function toggle(startOver = true) {
+  //     speechSynthesis.cancel();
+  //     if (startOver) {
+  //       speechSynthesis.speak(msg);
+  //     }
+  //   }
+  //   toggle();
+  // };
 
   newsReport = () => {
     const msg = new SpeechSynthesisUtterance();
@@ -77,13 +77,13 @@ class SpeechControl extends React.Component {
     }
 
     if (
-      this.props.articlesFetched &&
-      this.state.ArticleListexecuted === false
+      this.props.articlesFetched
+      // this.state.ArticleListexecuted === false
     ) {
       this.newsReport();
-      this.setState({
-        ArticleListexecuted: true
-      });
+      // this.setState({
+      //   ArticleListexecuted: true
+      // });
     }
   }
   componentDidMount() {
