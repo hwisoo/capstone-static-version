@@ -6,12 +6,16 @@ function ArticleList(props) {
   if (props.list) {
     props.list.map((article, i) => items.push(article));
   }
+  const keywordRef = React.createRef();
 
   const newsReport = () => {
     const msg = new SpeechSynthesisUtterance();
-    msg.text = "Here's the recent news ";
+    msg.text = "Fetching the news ";
 
     function toggle(startOver = true) {
+      let myVoices = speechSynthesis.getVoices();
+      let myVoice = myVoices[50];
+      msg.voice = myVoice;
       speechSynthesis.cancel();
       if (startOver) {
         speechSynthesis.speak(msg);
@@ -20,9 +24,32 @@ function ArticleList(props) {
     toggle();
   };
 
+  const handleKeywordSearch = () => {
+    let search = keywordRef.current.value;
+    props.onKeyWordSearch(search);
+  };
+
   return (
     <div>
       <h2>Articles List</h2>
+      <form>
+        <input
+          ref={keywordRef}
+          className="form-group"
+          type="text"
+          placeholder="Keyword"
+        />
+      </form>
+      <button
+        onClick={() => {
+          newsReport();
+          props.setArticlesStatus();
+          handleKeywordSearch();
+        }}
+        className="btn-lg btn-dark newsButton"
+      >
+        Fetch News
+      </button>
       {props.articlesFetched ? (
         <ul>
           {items.map((item, i) => (
@@ -34,15 +61,7 @@ function ArticleList(props) {
           ))}
         </ul>
       ) : (
-        <button
-          onClick={() => {
-            newsReport();
-            props.setArticlesStatus();
-          }}
-          className="btn-lg btn-dark"
-        >
-          Fetch News
-        </button>
+        <span />
       )}
     </div>
   );

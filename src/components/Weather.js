@@ -13,7 +13,27 @@ export default function Weather(props) {
       ". the current temperature outside is " +
       fahrenheit +
       " degrees fahrenheit.";
+
     function toggle(startOver = true) {
+      let myVoices = speechSynthesis.getVoices();
+      let myVoice = myVoices[50];
+      msg.voice = myVoice;
+      speechSynthesis.cancel();
+      if (startOver) {
+        speechSynthesis.speak(msg);
+      }
+    }
+    toggle();
+  };
+
+  const weatherDetail = event => {
+    const msg = new SpeechSynthesisUtterance();
+    msg.text = event.target.textContent;
+
+    function toggle(startOver = true) {
+      let myVoices = speechSynthesis.getVoices();
+      let myVoice = myVoices[50];
+      msg.voice = myVoice;
       speechSynthesis.cancel();
       if (startOver) {
         speechSynthesis.speak(msg);
@@ -25,7 +45,7 @@ export default function Weather(props) {
     <div>
       {props.weatherFetched ? (
         <div>
-          <p className="small">
+          <p onClick={event => weatherDetail(event)} className="small">
             Weather: {props.weatherDetails.description}
             <img
               className="weatherIcon"
@@ -34,14 +54,16 @@ export default function Weather(props) {
               }.png`}
             />
           </p>
-          <p className="small">
+          <p onClick={event => weatherDetail(event)} className="small">
             Temperature: {((props.weather.temp * 9) / 5 + 32).toFixed(2)} °F
           </p>
-          <p className="small">
+          <p onClick={event => weatherDetail(event)} className="small">
             Feels like: {((props.weather.app_temp * 9) / 5 + 32).toFixed(2)}°F
           </p>
-          <p className="small">Wind Speed: {props.weather.wind_spd} mph</p>
-          <p className="small">
+          <p onClick={event => weatherDetail(event)} className="small">
+            Wind Speed: {props.weather.wind_spd} mph
+          </p>
+          <p onClick={event => weatherDetail(event)} className="small">
             Location: {props.weather.city_name}, {props.weather.state_code}{" "}
           </p>{" "}
         </div>

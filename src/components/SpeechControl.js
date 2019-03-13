@@ -1,15 +1,7 @@
 import React from "react";
 
-class SpeechControl extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      ArticleListexecuted: false
-    };
-  }
-
-  initialGreeting = () => {
-    const msg = new SpeechSynthesisUtterance();
+export default function SpeechControl(props) {
+  const initialGreeting = () => {
     let d = new Date();
     const weekday = new Array(7);
     weekday[0] = "Sunday";
@@ -21,10 +13,15 @@ class SpeechControl extends React.Component {
     weekday[6] = "Saturday";
     let hour = d.getHours();
     let n = weekday[d.getDay()];
+    const msg = new SpeechSynthesisUtterance();
+
     let customGreeting = hour < 12 ? "Good morning," : "Good afternoon,";
-    msg.text = customGreeting + " Today is " + n + this.props.date + ".";
+    msg.text = customGreeting + " Today is " + n + props.date + ".";
 
     function toggle(startOver = true) {
+      let myVoices = speechSynthesis.getVoices();
+      let myVoice = myVoices[50];
+      msg.voice = myVoice;
       speechSynthesis.cancel();
       if (startOver) {
         speechSynthesis.speak(msg);
@@ -33,70 +30,5 @@ class SpeechControl extends React.Component {
     toggle();
   };
 
-  componentWillMount() {
-    this.initialGreeting();
-  }
-
-  componentDidMount() {
-    const msg = new SpeechSynthesisUtterance();
-    let voices = [];
-    const voicesDropdown = document.querySelector('[name="voice"]');
-    const options = document.querySelectorAll('[type="range"], [name="text"]');
-    const speakButton = document.querySelector("#speak");
-    const stopButton = document.querySelector("#stop");
-    msg.text = "Good morning, Today's date is";
-
-    function populateVoices() {
-      voices = this.getVoices();
-      console.table(voices);
-      voicesDropdown.innerHTML = voices
-        .filter(voice => voice.name === "Google UK English Male")
-        .filter(voice => voice.lang.includes("en"))
-        .map(
-          voice =>
-            `<option value="${voice.name}">${voice.name} (${
-              voice.lang
-            })</option>`
-        )
-        .join("");
-    }
-
-    function setVoice(name) {
-      msg.voice = voices.find(voice => voice.name === name);
-      toggle();
-    }
-
-    function toggle(startOver = true) {
-      speechSynthesis.cancel();
-      if (startOver) {
-        speechSynthesis.speak(msg);
-      }
-    }
-
-    function setOption() {
-      console.log(this.name, this.value);
-      msg[this.name] = this.value;
-      toggle();
-    }
-
-    speechSynthesis.addEventListener("voiceschanged", populateVoices);
-    voicesDropdown.addEventListener("change", setVoice);
-    options.forEach(option => option.addEventListener("change", setOption));
-    speakButton.addEventListener("click", toggle);
-    stopButton.addEventListener("click", () => toggle(false));
-  }
-
-  render() {
-    return (
-      <div className="voiceinator">
-        <select name="voice" id="voices">
-          <option value="">Select A Voice</option>
-        </select>
-        <button id="stop">Stop!</button>
-        <button id="speak">Speak</button>
-      </div>
-    );
-  }
+  return <div />;
 }
-
-export default SpeechControl;

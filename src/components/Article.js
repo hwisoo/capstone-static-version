@@ -6,6 +6,9 @@ function Article(props) {
     msg.text = props.current.title;
 
     function toggle(startOver = true) {
+      let myVoices = speechSynthesis.getVoices();
+      let myVoice = myVoices[50];
+      msg.voice = myVoice;
       speechSynthesis.cancel();
       if (startOver) {
         speechSynthesis.speak(msg);

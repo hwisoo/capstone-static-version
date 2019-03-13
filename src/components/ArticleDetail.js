@@ -6,6 +6,9 @@ function ArticleDetail(props) {
     msg.text = event.target.textContent;
 
     function toggle(startOver = true) {
+      let myVoices = speechSynthesis.getVoices();
+      let myVoice = myVoices[50];
+      msg.voice = myVoice;
       speechSynthesis.cancel();
       if (startOver) {
         speechSynthesis.speak(msg);
@@ -19,6 +22,9 @@ function ArticleDetail(props) {
     msg.text = "Fetching the full article.";
 
     function toggle(startOver = true) {
+      let myVoices = speechSynthesis.getVoices();
+      let myVoice = myVoices[50];
+      msg.voice = myVoice;
       speechSynthesis.cancel();
       if (startOver) {
         speechSynthesis.speak(msg);
@@ -39,7 +45,6 @@ function ArticleDetail(props) {
       <div>
         <h2>Article detail</h2>
         <h3 onClick={event => newsDetail(event)}>
-          {props.articleToDisplay.post.author}:{" "}
           {props.articleToDisplay.post.title}
         </h3>
         <h4 onClick={event => newsDetail(event)}>

@@ -50,6 +50,10 @@
   grid-template-columns: 2fr 3fr 2fr;
 }
 
+.main-container h2 {
+  padding-top: 20px;
+}
+
 .articleImg {
   border: 2px solid #fff;
   margin-top: 20px;
@@ -97,4 +101,15 @@ img.googleLogo {
 .articleTitle:hover {
   cursor: pointer;
   text-decoration: underline;
+}
+
+.reader textarea {
+  width: 90%;
+  margin: auto;
+}
+
+.reader select {
+  width: 80%;
+  margin: auto;
+  margin-bottom: 30px;
 }

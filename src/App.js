@@ -3,7 +3,7 @@ import Header from "./components/Header";
 import "./App.css";
 import ArticleList from "./components/ArticleList";
 import ArticleDetail from "./components/ArticleDetail";
-import TodoList from "./components/TodoList";
+import Reader from "./components/Reader";
 import SpeechControl from "./components/SpeechControl";
 import moment from "moment";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
@@ -12,7 +12,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      //fetch status
+      //UI states
       weatherFetched: false,
       articlesFetched: false,
       todoListFetched: false,
@@ -23,24 +23,16 @@ class App extends Component {
       weatherDetails: {},
 
       // articles
+      keyword: "",
       articleList: [],
       selectedArticle: null,
       today: moment().format("MMMM Do YYYY")
     };
+    this.onKeyWordSearch = this.onKeyWordSearch.bind(this);
   }
 
   componentWillMount() {
-    this.fetchWeather();
     this.handleWeatherData();
-    let promise = this.fetchArticles();
-    promise.then(response => {
-      let data = JSON.parse(response);
-      console.table(data.articles);
-      this.setState({
-        articleList: data.articles
-      });
-    });
-    this.fetchArticles();
   }
 
   setWeatherStatus = () => {
@@ -96,14 +88,15 @@ class App extends Component {
     console.log(post.title);
   };
 
-  fetchArticles() {
+  fetchArticles(search) {
     return new Promise((resolve, reject) => {
       let request = new XMLHttpRequest();
 
       let url =
-        "https://newsapi.org/v2/top-headlines?" +
-        "sources=bbc-news&" +
-        "apiKey=559746f8cabf46d290a2553dcb04eaa5";
+        "https://newsapi.org/v2/everything?q=" +
+        search +
+        "&sources=bbc-news" +
+        "&apiKey=559746f8cabf46d290a2553dcb04eaa5";
       request.onload = function() {
         if (this.status === 200) {
           resolve(request.response);
@@ -115,6 +108,18 @@ class App extends Component {
       request.send();
     });
   }
+
+  onKeyWordSearch = keyword => {
+    let promise = this.fetchArticles(keyword);
+    promise.then(response => {
+      let data = JSON.parse(response);
+      console.table(data.articles);
+      this.setState({
+        articleList: data.articles
+      });
+    });
+    this.fetchArticles();
+  };
 
   render() {
     return (
@@ -148,13 +153,14 @@ class App extends Component {
         />
         <div className="main-container">
           <ArticleList
+            onKeyWordSearch={this.onKeyWordSearch}
             setArticlesStatus={this.setArticlesStatus}
             articlesFetched={this.state.articlesFetched}
             selectArticle={this.selectArticle}
             list={this.state.articleList}
           />
           <ArticleDetail articleToDisplay={this.state.selectedArticle} />
-          <TodoList />
+          <Reader />
         </div>
       </div>
     );
