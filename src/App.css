@@ -30,6 +30,13 @@
   margin: 0;
 }
 
+.App-header h3:hover,
+.App-header time:hover,
+.weatherDiv p:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 .App-link {
   color: #61dafb;
 }

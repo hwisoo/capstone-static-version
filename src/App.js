@@ -95,7 +95,6 @@ class App extends Component {
       let url =
         "https://newsapi.org/v2/everything?q=" +
         search +
-        "&sources=bbc-news" +
         "&apiKey=559746f8cabf46d290a2553dcb04eaa5";
       request.onload = function() {
         if (this.status === 200) {

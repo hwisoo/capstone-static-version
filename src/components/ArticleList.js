@@ -26,6 +26,9 @@ function ArticleList(props) {
 
   const handleKeywordSearch = () => {
     let search = keywordRef.current.value;
+    if (search === "") {
+      search = "news";
+    }
     props.onKeyWordSearch(search);
   };
 
@@ -38,6 +41,7 @@ function ArticleList(props) {
           className="form-group"
           type="text"
           placeholder="Keyword"
+          required
         />
       </form>
       <button

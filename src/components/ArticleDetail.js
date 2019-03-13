@@ -57,6 +57,7 @@ function ArticleDetail(props) {
         >
           {props.articleToDisplay.post.url}
         </a>
+        <br />
         <img
           className="articleImg"
           src={props.articleToDisplay.post.urlToImage}

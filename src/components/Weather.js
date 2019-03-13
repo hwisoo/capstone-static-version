@@ -44,7 +44,7 @@ export default function Weather(props) {
   return (
     <div>
       {props.weatherFetched ? (
-        <div>
+        <div className="weatherDiv">
           <p onClick={event => weatherDetail(event)} className="small">
             Weather: {props.weatherDetails.description}
             <img
