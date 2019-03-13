@@ -5,7 +5,7 @@ function DateTime(props) {
   console.log(props);
   return (
     <div>
-      <h2>{props.date}</h2>
+      <h3>{props.date}</h3>
       <Clock
         format={"dddd, h:mm:ss A"}
         ticking={true}

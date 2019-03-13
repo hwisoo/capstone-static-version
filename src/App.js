@@ -142,6 +142,7 @@ class App extends Component {
         />
         <SpeechControl
           weatherFetched={this.state.weatherFetched}
+          setWeatherStatus={this.setWeatherStatus}
           weather={this.state.weather}
           weatherDetails={this.state.weatherDetails}
           articlesFetched={this.state.articlesFetched}

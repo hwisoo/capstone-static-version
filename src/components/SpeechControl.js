@@ -3,6 +3,9 @@ import React from "react";
 class SpeechControl extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      ArticleListexecuted: false
+    };
   }
 
   initialGreeting = () => {
@@ -18,7 +21,7 @@ class SpeechControl extends React.Component {
     weekday[6] = "Saturday";
     let hour = d.getHours();
     let n = weekday[d.getDay()];
-    let customGreeting = hour < 11 ? "Good morning" : "Good afternoon";
+    let customGreeting = hour < 12 ? "Good morning" : "Good afternoon";
     msg.text = customGreeting + " Today is " + n + this.props.date + ".";
 
     function toggle(startOver = true) {
@@ -72,8 +75,15 @@ class SpeechControl extends React.Component {
     if (this.props.weatherFetched) {
       this.weatherReport();
     }
-    if (this.props.articlesFetched) {
+
+    if (
+      this.props.articlesFetched &&
+      this.state.ArticleListexecuted === false
+    ) {
       this.newsReport();
+      this.setState({
+        ArticleListexecuted: true
+      });
     }
   }
   componentDidMount() {
