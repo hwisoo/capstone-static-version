@@ -93,7 +93,7 @@ class App extends Component {
       let request = new XMLHttpRequest();
 
       let url =
-        "https://newsapi.org/v2/everything?q=" +
+        "https://newsapi.org/v2/everything" +
         search +
         "&apiKey=559746f8cabf46d290a2553dcb04eaa5";
       request.onload = function() {

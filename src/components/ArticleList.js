@@ -29,6 +29,7 @@ function ArticleList(props) {
     if (search === "") {
       search = "news";
     }
+    search =  "?q=" + search;
     props.onKeyWordSearch(search);
   };
 
