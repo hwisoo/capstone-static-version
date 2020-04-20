@@ -18,7 +18,7 @@ class App extends Component {
       todoListFetched: false,
 
       //weather
-      location: "Seattle",
+      location: "Austin, TX",
       weather: {},
       weatherDetails: {},
 
