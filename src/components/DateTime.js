@@ -24,7 +24,7 @@ function DateTime(props) {
         onClick={event => dateDetail(event)}
         format={"dddd, h:mm:ss A"}
         ticking={true}
-        timezone={"US/Pacific"}
+        timezone={"US/Central"}
       />
     </div>
   );
