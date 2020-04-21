@@ -4,7 +4,7 @@ export default function Weather(props) {
   const weatherReport = () => {
     const msg = new SpeechSynthesisUtterance();
     console.log(props.weather);
-    let fahrenheit = (props.weather.temp * 9) / 5 + 32;
+    let fahrenheit = ((props.weather.temp * 9) / 5 + 32).toFixed(2);
     msg.text =
       "The current weather in " +
       props.weather.city_name +
